@@ -37,7 +37,7 @@ public:
           Selector Sel = SelExpr->getSelector();
           if (const ObjCObjectPointerType *OT = Receiver->getType()->getAs<ObjCObjectPointerType>()) {
             ObjCInterfaceDecl *decl = OT->getInterfaceDecl();
-            if (! decl->lookupInstanceMethod(Sel)) {
+            if (! decl->lookupClassMethod(Sel)) {
               errs() << "Warning: class " << TypeName << " does not implement selector " << Sel.getAsString() << "\n";
               SourceLocation Loc = E->getExprLoc();
               PresumedLoc PLoc = astContext->getSourceManager().getPresumedLoc(Loc);
